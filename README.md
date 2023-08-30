@@ -8,7 +8,7 @@ We’ll use the Raspberry Pi Imager to flash the operating system image to the S
 
 Follow the directions on the website to download and install the imager.
 
-Install Raspberry Pi OS
+# Install Raspberry Pi OS
 Now it is time to install Raspberry Pi OS.
 
 Insert the SD card into your regular computer from which you plan to install Raspberry Pi OS.
@@ -48,7 +48,8 @@ Once you’re logged in, change the default password:
 passwd
 Congratulations! You’ve now got a tiny Linux machine running that you can hide in a closet and access from your normal workstation.
 
-Install Grafana
+# Install Grafana
+
 Now that you’ve got the Raspberry Pi up and running, the next step is to install Grafana.
 
 Add the APT key used to authenticate packages:
@@ -57,18 +58,25 @@ wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 Add the Grafana APT repository:
 
 echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
-Install Grafana:
+
+
+# Install Grafana:
 
 sudo apt-get update
 sudo apt-get install -y grafana
+
+
 Grafana is now installed, but not yet running. To make sure Grafana starts up even if the Raspberry Pi is restarted, we need to enable and start the Grafana Systemctl service.
 
 Enable the Grafana server:
 
 sudo /bin/systemctl enable grafana-server
-Start the Grafana server:
+
+
+# Start the Grafana server:
 
 sudo /bin/systemctl start grafana-server
+
 Grafana is now running on the machine and is accessible from any device on the local network.
 
 Open a browser and go to http://<ip address>:3000, where the IP address is the address that you used to connect to the Raspberry Pi earlier. You’re greeted with the Grafana login page.
@@ -79,7 +87,8 @@ Change the password for the admin user when asked.
 
 Congratulations! Grafana is now running on your Raspberry Pi. If the Raspberry Pi is ever restarted or turned off, Grafana will start up whenever the machine regains power.
 
-Summary
+# Summary
+
 If you want to use Grafana without having to go through a full installation process, check out Grafana Cloud, which is designed to get users up and running quickly and easily. Grafana Cloud offers a forever free plan that is genuinely useful for hobbyists, testing, and small teams.
 
 
